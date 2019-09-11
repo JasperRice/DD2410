@@ -1,0 +1,34 @@
+Part C:
+1. Cube detected
+2. Complete picking task
+3. Carry cube to second table
+4. Complete placing task
+5. Cube placed on table? Yes/No
+
+Part A:
+1. Robot has located itself in the apartment
+2. Navigation to picking pose
+3. Cube detected
+4. Complete picking task
+5. Navigation with cube to second table
+6. Complete placing task
+7. Cube placed on table? Yes/No
+
+roslaunch robotics_project launch_project.launch
+
+[move_base_msgs/MoveBaseGoal]:
+geometry_msgs/PoseStamped target_pose
+  std_msgs/Header header
+    uint32 seq
+    time stamp
+    string frame_id
+  geometry_msgs/Pose pose
+    geometry_msgs/Point position
+      float64 x
+      float64 y
+      float64 z
+    geometry_msgs/Quaternion orientation
+      float64 x
+      float64 y
+      float64 z
+      float64 w

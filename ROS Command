@@ -1,0 +1,12 @@
+<------------------------------------------------>
+$ source /opt/ros/kinetic/setup.bash
+<------------------------------------------------>
+$ cd ~/catkin_ws
+$ source devel/setup.bash
+<------------------------------------------------>
+Create a package:
+$ catkin_create_pkg <package_name> rospy std_msgs ras_lab1_msgs
+<------------------------------------------------>
+$ cd <package_name>/scripts
+$ chmod +x <file_name>.py
+<------------------------------------------------>

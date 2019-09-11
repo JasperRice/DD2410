@@ -1,0 +1,131 @@
+<-------------------------------------------------->
+Running code:
+roscore
+roslaunch mapping_assignment play.launch
+rosbag play --clock ~/catkin_ws/src/mapping_assignment_metapackage/mapping_assignment/bags/stage_1.bag
+rosrun mapping_assignment main.py
+<-------------------------------------------------->
+Functions:
+1. def get_yaw(self, q):
+    """Returns the Euler yaw from a quaternion.
+    :type q: Quaternion
+    """
+2. def raytrace(self, start, end):
+    """Returns all cells in the grid map that has been traversed
+    from start to end, including start and excluding end.
+    start = (x, y) grid map index
+    end = (x, y) grid map index
+    """
+3. def add_to_map(self, grid_map, x, y, value):
+    """Adds value to index (x, y) in grid_map if index is in bounds.
+    Returns whether (x, y) is inside grid_map or not.
+    """
+4. def is_in_bounds(self, grid_map, x, y):
+    """Returns whether (x, y) is inside grid_map or not."""
+5. def update_map(self, grid_map, pose, scan):
+    """Updates the grid_map with the data from the laser scan and the pose.
+
+    For E:
+        Update the grid_map with self.occupied_space.
+
+        Return the updated grid_map.
+
+        You should use:
+            self.occupied_space  # For occupied space
+
+            You can use the function add_to_map to be sure that you add
+            values correctly to the map.
+
+            You can use the function is_in_bounds to check if a coordinate
+            is inside the map.
+
+    For C:
+        Update the grid_map with self.occupied_space and self.free_space. Use
+        the raytracing function found in this file to calculate free space.
+
+        You should also fill in the update (OccupancyGridUpdate()) found at
+        the bottom of this function. It should contain only the rectangle area
+        of the grid_map which has been updated.
+
+        Return both the updated grid_map and the update.
+
+        You should use:
+            self.occupied_space  # For occupied space
+            self.free_space      # For free space
+
+            To calculate the free space you should use the raytracing function
+            found in this file.
+
+            You can use the function add_to_map to be sure that you add
+            values correctly to the map.
+
+            You can use the function is_in_bounds to check if a coordinate
+            is inside the map.
+
+    :type grid_map: GridMap
+    :type pose: PoseStamped
+    :type scan: LaserScan
+    """
+<-------------------------------------------------->
+Messages:
+1. geometry_msgs/PoseStamped
+std_msgs/Header header
+    uint32 seq
+    time stamp
+    string frame_id
+geometry_msgs/Pose pose
+    geometry_msgs/Point position
+        float64 x
+        float64 y
+        float64 z
+    geometry_msgs/Quaternion orientation
+        float64 x
+        float64 y
+        float64 z
+        float64 w
+2. sensor_msgs/LaserScan
+std_msgs/Header header
+    uint32 seq
+    time stamp
+    string frame_id
+float32 angle_min
+float32 angle_max
+float32 angle_increment
+float32 time_increment
+float32 scan_time
+float32 range_min
+float32 range_max
+float32[] ranges
+float32[] intensities
+3. nav_msgs/OccupancyGrid
+std_msgs/Header header
+    uint32 seq
+    time stamp
+    string frame_id
+nav_msgs/MapMetaData info
+    time map_load_time
+    float32 resolution
+    uint32 width
+    uint32 height
+    geometry_msgs/Pose origin
+        geometry_msgs/Point position
+            float64 x
+            float64 y
+            float64 z
+        geometry_msgs/Quaternion orientation
+            float64 x
+            float64 y
+            float64 z
+            float64 w
+int8[] data
+4. map_msgs/OccupancyGridUpdate: (C Level)
+std_msgs/Header header
+    uint32 seq
+    time stamp
+    string frame_id
+int32 x
+int32 y
+uint32 width
+uint32 height
+int8[] data
+<-------------------------------------------------->

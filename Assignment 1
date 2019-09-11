@@ -1,0 +1,54 @@
+<------------------------------------------------>
+Assignment 1:
+$ roslaunch ras_lab1_launch kobuki_lab1.launch
+<------------------------------------------------>
+$ rostopic type /kobuki/adc
+	ras_lab1_msgs/ADConverter
+$ rosmsg show ras_lab1_msgs/ADConverter
+	uint16 ch1
+	uint16 ch2
+	uint16 ch3
+	uint16 ch4
+	uint16 ch5
+	uint16 ch6
+	uint16 ch7
+	uint16 ch8
+<------------------------------------------------>
+$ rostopic type /kobuki/encoders
+	ras_lab1_msgs/Encoders
+$ rosmsg show ras_lab1_msgs/Encoders
+	int32 encoder1
+	int32 encoder2
+	int32 delta_encoder1
+	int32 delta_encoder2
+	int32 timestamp
+<------------------------------------------------>
+$ rostopic type /kobuki/pwm
+	ras_lab1_msgs/PWM
+$ rosmsg show ras_lab1_msgs/PWM
+	std_msgs/Header header
+	  uint32 seq
+	  time stamp
+	  string frame_id
+	int32 PWM1
+	int32 PWM2
+<------------------------------------------------>
+$ rosmsg show geometry_msgs/Twist
+	geometry_msgs/Vector3 linear
+		float64 x
+		float64 y
+		float64 z
+	geometry_msgs/Vector3 angular
+		float64 x
+		float64 y
+		float64 z
+<------------------------------------------------>
+Task 1:
+$ rosrun ras_lab1_open_loop_control open_loop_controller.py
+
+Task 2:
+$ rosrun ras_lab1_cartesian_controller cartesian_controller.py
+
+Task 3:
+$ rosrun wall_following_controller wall_following_controller.py
+<------------------------------------------------>

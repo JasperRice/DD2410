@@ -1,0 +1,6 @@
+<------------------------------------------------>
+PART 1: SCARA ROBOT
+roslaunch kinematics_assignment scara_launch.launch
+<------------------------------------------------>
+PART 2: KUKA ROBOT
+roslaunch kinematics_assignment kuka_launch.launch
